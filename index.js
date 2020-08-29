@@ -117,4 +117,4 @@ client.on("message", async message => {
 })
 
 
-client.login('NzM0Mjk0ODcxMTE1ODI1MTgy.XxPokg.OFZY2jC_xCjZ1PrNTmQQSH93zFg');
+client.login(config.token);
