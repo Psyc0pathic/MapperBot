@@ -111,4 +111,8 @@ client.on("message", async message => {
 })
 
 
+<<<<<<< HEAD
 client.login(config.token);
+=======
+client.login(config.token);
+>>>>>>> 3af514d4f8beb0af0f68d2f5e470bf5d77f10486
