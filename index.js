@@ -1,10 +1,10 @@
-const { Client, MessageAttachment } = require('discord.js');
+const { MessageAttachment } = require('discord.js');
 
 const Discord = require('discord.js');
 
 const client = new Discord.Client();
 
-const { token, prefix } = require('./config.json');
+const { prefix } = require('./config.json');
 
 const { readdirSync } = require('fs');
 
@@ -12,12 +12,6 @@ const { join } = require('path');
 
 const config = require('./config.json');
 client.config = config;
-
-const db = require('quick.db');
-
-const ms = require('parse-ms');
-
-const axios = require('axios');
 
 client.commands= new Discord.Collection();
 
@@ -42,9 +36,9 @@ client.on("message", async message => {
     let foundInText = false;
 	
 	for (var i in blacklisted) {
-	  if (message.content.toLowerCase().includes(blacklisted[i].toLowerCase())) foundInText = true;
+	if (message.content.toLowerCase().includes(blacklisted[i].toLowerCase())) foundInText = true;
 		}
-	  if (foundInText) {
+	if (foundInText) {
 		message.delete();
     }
 
@@ -112,9 +106,9 @@ client.on("message", async message => {
 			message.channel.send('Convert all song files into .ogg files for mapping!\nhttps://bsmg.wiki/mapping/basic-audio.html#exporting\n*Always keep your maps\' audio files as .ogg since MMA2 converts all maps into .egg after zipping*');
 		}
 		else return;
-	};
+	}
 
 })
 
 
-client.login('NzM0Mjk0ODcxMTE1ODI1MTgy.XxPokg.OFZY2jC_xCjZ1PrNTmQQSH93zFg');
+client.login(config.token);

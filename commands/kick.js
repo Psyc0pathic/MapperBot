@@ -2,14 +2,14 @@ module.exports = {
     name: 'kick',
     cooldown: 1,
     description: "this is a kicking command!",
-    async run (client, message, args) {
+    async run (client, message) {
         const user = message.mentions.users.first();
 
         if (user) {
           
           const member = message.guild.member(user);
           
-          if (member) {
+          if (message.member.hasPermission("KICK_MEMBERS")) {
             
             member
               .kick('Probably for spamming or being toxic. I am an automated msg.')
