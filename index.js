@@ -33,14 +33,8 @@ client.on('ready', () => {
 client.on("message", async message => {
 
 	let blacklisted = ['anal','anus', 'beatsage', 'beat sage', 'ballsack','bastard', 'biatch','blowjob','boner','buttplug','clitoris','cunt','dick','dildo','fag','fellatio','fellate','fuck','fucking','nigger','nigga','penis','pussy','queer','retard','sex','slut','tits','twat','vagina','whore','wank']
-    let foundInText = false;
-	
-	for (var i in blacklisted) {
-	if (message.content.toLowerCase().includes(blacklisted[i].toLowerCase())) foundInText = true;
-		}
-	if (foundInText) {
-		message.delete();
-    }
+    	
+	if (blacklisted.some(word => message.content.toLowerCase.includes(word))) message.delete();
 
     if(message.author.bot) return;
     if(message.channel.type === 'dm') return;
@@ -60,17 +54,14 @@ client.on("message", async message => {
             console.error(error);
         }
 	}
-	
-	if (!message.content.startsWith(prefix)){
+
+	else {
 		
 		if ((message.attachments.size > 0) && (message.content.startsWith('**Map:**') || message.content.startsWith('Map:'))) {
 			let file = message.attachments.first().url;
 			if (file.endsWith('.zip')){
 
 				let fileName = file.split("/")[file.split("/").length - 1];
-				fileName = file.split("/")[file.split("/").length - 1];
-				fileName = file.split("/")[file.split("/").length - 1];
-				fileName = file.split("/")[file.split("/").length - 1];
 
 				const embed = new Discord.MessageEmbed()
 				.setColor('#fdcb5a')
@@ -111,8 +102,4 @@ client.on("message", async message => {
 })
 
 
-<<<<<<< HEAD
 client.login(config.token);
-=======
-client.login(config.token);
->>>>>>> 3af514d4f8beb0af0f68d2f5e470bf5d77f10486
