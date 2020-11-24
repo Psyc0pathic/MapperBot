@@ -12,6 +12,7 @@
     "axios": "^0.19.2",
     "discord.js": "^12.2.0",
     "profanities": "^2.13.0",
-    "quick.db": "^7.1.1"
+    "quick.db": "^7.1.1",
+	"parse-ms": "^2.1.0"
   }
 }
