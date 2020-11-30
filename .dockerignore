@@ -11,8 +11,6 @@ README
 config
 
 # Directories
-commands/
-models/
 .vs/
 
 # Dependency directory

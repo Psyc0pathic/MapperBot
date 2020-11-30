@@ -6,7 +6,7 @@ module.exports = {
         if (talkedRecently.has(message.author.id)) {
             message.channel.send(`**${message.author.tag}**, Wait 20 seconds.`);
     } else {
-        message.channel.send('Contact mappers, modelers and other modders for monetary requests here!\nhttps://discord.gg/4RbcH5G');
+        message.channel.send('Contact mappers, modelers and other modders for monetary requests here!\nhttps://discord.gg/h8VMkhn');
         talkedRecently.add(message.author.id);
         setTimeout(() => {
           talkedRecently.delete(message.author.id);
