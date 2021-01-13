@@ -6,7 +6,7 @@ module.exports = {
         if (talkedRecently.has(message.author.id)) {
             message.channel.send(`**${message.author.tag}**, Wait 10 seconds.`);
     } else {
-        message.channel.send('Link to MediocreMapAssistant2 - https://git.bsmg.wiki/Top_Cat/MediocreMapAssistant2/releases/tag/4.5.0');
+        message.channel.send('Link to MediocreMapAssistant2 - https://git.bsmg.dev/Top_Cat/MediocreMapAssistant2/releases/latest');
         talkedRecently.add(message.author.id);
         setTimeout(() => {
           talkedRecently.delete(message.author.id);
