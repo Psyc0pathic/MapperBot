@@ -1,17 +1,16 @@
 const talkedRecently = new Set();
 module.exports = {
-    name: "help",
-    description: "The help command",
-
+    name: 'helenguide',
+    description: "HelenCarnate's Beatsaber mapping tutorial",
     async run (client, message, args) {
         if (talkedRecently.has(message.author.id)) {
             message.channel.send(`**${message.author.tag}**, Wait 5 seconds.`);
     } else {
-        message.channel.send('**Commands:** !guide, !audio, !extension, !light, !testplay, !metadata, !avatar, !mapping, !mma2, !chroma, !commissions, !scoresaber, !helenguide, !fruguide, !njs, !parity, !errorchecker\n**DiscordServers:** !commissions, !scoresaber\n*The bot updates from time to time.*');
+        message.channel.send('**A 17 minute video guide for Beat Saber mapping from Helen Carnate**\nWatch here!: <https://www.youtube.com/watch?v=6O3sXmh-kAA>');
         talkedRecently.add(message.author.id);
         setTimeout(() => {
           talkedRecently.delete(message.author.id);
         }, 5000);
     }
-    }   
+    }
 }
