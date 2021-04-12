@@ -56,7 +56,7 @@ client.on("message", async message => {
 	}
 
 	else {
-
+            
 		if ((message.attachments.size > 0) && (message.content.startsWith('**Map:**') || message.content.startsWith('Map:'))) {
 			let file = message.attachments.first().url;
 			if (file.endsWith('.zip')){
