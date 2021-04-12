@@ -33,8 +33,8 @@ client.on('ready', () => {
 client.on("message", async message => {
 
 
-	let blacklisted = ['anal','anus', 'beatsage', 'beat sage', 'ballsack','bastard', 'biatch','blowjob','boner','buttplug','clitoris','cunt','dick','dildo','fag','fellatio','fellate','fuck','fucking','nigger','nigga','penis','pussy','queer','retard','sex','slut','tits','twat','vagina','whore','wank']
-    	
+	let blacklisted = ['anus', 'beatsage', 'beat sage', 'ballsack','bastard', 'biatch','blowjob','boner','buttplug','clitoris','cunt','dick','dildo','fag','fellatio','fellate','fuck','fucking','nigger','nigga','penis','pussy','queer','retard','sex','slut','tits','twat','vagina','whore']
+
 	if (blacklisted.some(word => message.content.toLowerCase().includes(word))) message.delete();
 
     if(message.author.bot) return;
