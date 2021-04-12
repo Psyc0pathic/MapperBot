@@ -32,8 +32,8 @@ client.on('ready', () => {
 
 client.on("message", async message => {
 
-	let blacklisted = ['anal','anus', 'beatsage', 'beat sage', 'ballsack','bastard', 'biatch','blowjob','boner','buttplug','clitoris','cunt','dick','dildo','fag','fellatio','fellate','fuck','fucking','nigger','nigga','penis','pussy','queer','retard','sex','slut','tits','twat','vagina','whore','wank']
-    	
+	let blacklisted = ['anus', 'beatsage', 'beat sage', 'ballsack','bastard', 'biatch','blowjob','boner','buttplug','clitoris','cunt','dick','dildo','fag','fellatio','fellate','fuck','fucking','nigger','nigga','penis','pussy','queer','retard','sex','slut','tits','twat','vagina','whore']
+
 	if (blacklisted.some(word => message.content.toLowerCase.includes(word))) message.delete();
 
     if(message.author.bot) return;
@@ -56,7 +56,7 @@ client.on("message", async message => {
 	}
 
 	else {
-		
+
 		if ((message.attachments.size > 0) && (message.content.startsWith('**Map:**') || message.content.startsWith('Map:'))) {
 			let file = message.attachments.first().url;
 			if (file.endsWith('.zip')){
@@ -88,10 +88,10 @@ client.on("message", async message => {
 			message.channel.send('Happy Birthday!');
 		}
 		else if ((message.content.toLowerCase().includes('i\'m') || message.content.toLowerCase().includes('im') || message.content.toLowerCase().includes('i am')) && message.content.toLowerCase().includes('hungry')){
-			message.channel.send('Don\'t map with an empty stomach!');	
+			message.channel.send('Don\'t map with an empty stomach!');
 		}
 		else if ((message.content.toLowerCase().includes('i\'m') || message.content.toLowerCase().includes('im') || message.content.toLowerCase().includes('i am')) && message.content.toLowerCase().includes('thirsty')){
-			message.channel.send('Remember to stay hydrated, always.');	
+			message.channel.send('Remember to stay hydrated, always.');
 		}
 		else if (message.content.toLowerCase().includes('convert to ogg') || message.content.toLowerCase().includes('export to ogg')){
 			message.channel.send('Convert all song files into .ogg files for mapping!\nhttps://bsmg.wiki/mapping/basic-audio.html#exporting\n*Always keep your maps\' audio files as .ogg since MMA2 converts all maps into .egg after zipping*');
