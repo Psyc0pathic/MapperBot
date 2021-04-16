@@ -6,11 +6,8 @@ module.exports = {
     description: "Check the sever's leaderboard",
 
     async run (client, message, args) {
-        let money = db.all().filter(item => item.ID.startsWith("money_"));
-        
-        let content = "";
-        
-        let userToGet = message.mentions.users.first() || null;
+        let money = db.startsWith(`money_${message.guild.id}`, { sort: '.data' })
+
 
         let start = 0;
         let end = 10;
@@ -37,31 +34,19 @@ module.exports = {
 
         for (let i = start; i < end; i++){
 
-            let username = message.guild.members.cache.get(money[i].ID.split("_")[2]);
-            if(username == undefined)
-            {
-                content += `${i+1}. Unknown Player - ${money[i].data} \n`;
-                continue;
 
-            }
-            let doBold = false;
-            if (userToGet != null)
-            {
-                doBold = (username.id == userToGet.id);
-                if (doBold) content += `**`
-            }
-            content += `${i+1}. ${username} - ${money[i].data} \n`;
-            if (userToGet != null && doBold) content += `**`
+        for (let i = 0; i < money.length; i++){
+            let user = client.users.cache.get(money[i].ID.split('_')[2]).username
 
+            content += `${i+1}. ${user} - ${money[i].data} \n`;
 
+            const embed = new Discord.MessageEmbed()
+            .setTitle(`${message.guild.name}'s Leaderboard`)
+            .setDescription(`${content}`)
+            .setColor("RANDOM")
+            .setTimestamp()
+
+            message.channel.send(embed);
         }
-        if (end != money.length) content += '...';
-        const embed = new Discord.MessageEmbed()
-        .setTitle(`${message.guild.name}'s Leaderboard`)
-        .setDescription(`${content}`)
-        .setColor("RANDOM")
-        .setTimestamp()
-
-        message.channel.send(embed);
     }
 }

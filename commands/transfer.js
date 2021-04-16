@@ -34,5 +34,3 @@ module.exports = {
         await db.subtract(`money_${message.guild.id}_${message.author.id}`, amount);
     
         return message.channel.send(`You've transferred your friends (${user.tag}) ${amount} pts!`);
-    }
-} 
