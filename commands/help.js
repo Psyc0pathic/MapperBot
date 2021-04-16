@@ -3,17 +3,17 @@ module.exports = {
     name: "help",
     description: "The help command",
 
-    async run (client, message, args) {
+    async run(client, message, args) {
         if (talkedRecently.has(message.author.id)) {
             message.channel.send(`**${message.author.tag}**, Wait 5 seconds.`);
-    } else {
+        } else {
 
-        message.channel.send('**Commands:** !audio, !avatar, !chrome, !daily, !error_checker, !extensions, !fruguide, !guide, !helenguide, !help, !lb, !light, !mapping, !metadata, !mma2, !njs, !parity, !pts, !rank, !scoresaber, !testplay, !transfer\n**DiscordServers:** !commissions, !scoresaber\n*The bot updates from time to time.*');
+            message.channel.send('**Commands:** !audio, !avatar, !chrome, !daily, !error_checker, !extensions, !fruguide, !guide, !helenguide, !help, !lb, !light, !mapping, !metadata, !mma2, !njs, !parity, !pts, !rank, !scoresaber, !testplay, !transfer\n**DiscordServers:** !commissions, !scoresaber\n*The bot updates from time to time.*');
 
-        talkedRecently.add(message.author.id);
-        setTimeout(() => {
-          talkedRecently.delete(message.author.id);
-        }, 5000);
+            talkedRecently.add(message.author.id);
+            setTimeout(() => {
+                talkedRecently.delete(message.author.id);
+            }, 5000);
+        }
     }
-    }   
 }
