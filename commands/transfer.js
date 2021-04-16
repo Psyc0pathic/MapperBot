@@ -27,6 +27,7 @@ module.exports = {
     
         if (!balance || balance == 0) return message.channel.send("Your wallet is empty.");
         if (amount > balance) return message.channel.send("The transfer cannot exceed your balance.");
+        if (amount < 0) return message.channel.send("The transfer cannot be negative.");
         if (amount === 0) return message.channel.send("Cannot transfer nothing");
     
         await db.add(`money_${message.guild.id}_${user.id}`, amount);

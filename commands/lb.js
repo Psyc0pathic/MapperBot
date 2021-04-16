@@ -28,9 +28,13 @@ module.exports = {
                 
             }
         }
-        end = start+10;
+        end = start+5;
         if (end > money.length) end = money.length;
         
+        money.sort(function(first, second) {
+            return second.data - first.data;
+           });
+
         for (let i = start; i < end; i++){
 
             let username = message.guild.members.cache.get(money[i].ID.split("_")[2]);
