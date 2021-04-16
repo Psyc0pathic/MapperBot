@@ -8,7 +8,7 @@ module.exports = {
             // untested bcz idk JS
             if(!talkedRecently.has(message.author.id)) 
             {
-                message.channel.send('soup', {files:["./attachements/soop.mp4"]});
+                message.channel.send('soup', {files:["../attachments/soop.mp4"]});
                 talkedRecently.add(message.author.id);
                 setTimeout(() => {
                   talkedRecently.delete(message.author.id);
