@@ -24,7 +24,7 @@ const emojiNote = {
         7: '<:noteBDR:555448463383330827>',
         8: '<:noteBND:555448463517548555>',
     },
-    2: { 0: '<:bomb:555448464016801792>' },
+    2: {0: '<:bomb:555448464016801792>'},
 };
 const blank = '<:anone:623604035907354654>';
 module.exports = {
@@ -86,7 +86,7 @@ module.exports = {
             return message.channel.send('There is no note.');
         }
         const grid = new Array(maxIndex * maxLayer).fill(null);
-        for (let i = 0; i < total; ) {
+        for (let i = 0; i < total;) {
             let randomIL = Math.floor(Math.random() * maxIndex * maxLayer);
             let randomDir = Math.floor(Math.random() * 9);
             let randomNote = Math.floor(Math.random() * 3);
