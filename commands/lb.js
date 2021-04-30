@@ -5,8 +5,8 @@ module.exports = {
     name: "lb",
     description: "Check the sever's leaderboard",
 
-    async run (client, message, args) {
-        let money = db.startsWith(`money_${message.guild.id}`, { sort: '.data' })
+    async run(client, message, args) {
+        let money = db.startsWith(`money_${message.guild.id}`, {sort: '.data'})
 
 
         let start = 0;
@@ -31,16 +31,16 @@ module.exports = {
             return second.data - first.data;
         });
 
-        for (let i = 0; i < money.length; i++){
+        for (let i = 0; i < money.length; i++) {
             let user = client.users.cache.get(money[i].ID.split('_')[2]).username
 
-            content += `${i+1}. ${user} - ${money[i].data} \n`;
+            content += `${i + 1}. ${user} - ${money[i].data} \n`;
 
             const embed = new Discord.MessageEmbed()
-            .setTitle(`${message.guild.name}'s Leaderboard`)
-            .setDescription(`${content}`)
-            .setColor("RANDOM")
-            .setTimestamp()
+                .setTitle(`${message.guild.name}'s Leaderboard`)
+                .setDescription(`${content}`)
+                .setColor("RANDOM")
+                .setTimestamp()
 
             message.channel.send(embed);
         }
